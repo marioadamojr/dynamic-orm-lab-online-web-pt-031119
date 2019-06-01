@@ -21,8 +21,13 @@ class InteractiveRecord
   end
 
   def initialize(options={})
+<<<<<<< HEAD
     options.each do |key, value|
       self.send("#{key}=", value)
+=======
+    options.each do |property, value|
+      self.send("#{property}=", value)
+>>>>>>> 49fe12c318446928d5f73934350c1594bd97b1c5
     end
   end
 
@@ -49,6 +54,7 @@ class InteractiveRecord
   end
 
   def self.find_by_name(name)
+<<<<<<< HEAD
     sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
     DB[:conn].execute(sql, name)
   end
@@ -60,4 +66,9 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE #{column} = ?"
     DB[:conn].execute(sql, value)
   end
+=======
+    sql = "SELECT * FROM #{self.table_name} WHERE name = '?'"
+    DB[:conn].execute(sql, name)
+  end
+>>>>>>> 49fe12c318446928d5f73934350c1594bd97b1c5
 end
